@@ -22,7 +22,6 @@ return {
                     { name = 'luasnip' },
                     { name = 'buffer' },
                     { name = 'path' },
-                    { name = 'neorg' },
                 },
             }
         end,

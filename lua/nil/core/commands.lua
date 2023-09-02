@@ -1,10 +1,12 @@
--- local diagnostic_hover = vim.api.nvim_create_augroup('HoverDiagnostics', { clear = true })
-
 -- automatic floating diagnostic popup
 vim.api.nvim_create_autocmd({ 'CursorHold' }, {
     pattern = { '<buffer>' },
     command = 'silent! lua vim.diagnostic.open_float({ focusable = false, focus = false })',
-    -- group = diagnostic_hover,
+})
+
+-- reload
+vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
+    command = 'checktime',
 })
 
 -- show cursor line only in active window
@@ -31,12 +33,11 @@ vim.api.nvim_create_autocmd({ 'InsertEnter', 'WinLeave' }, {
 vim.api.nvim_create_autocmd('BufWritePre', {
     group = vim.api.nvim_create_augroup('auto_create_dir', { clear = true }),
     callback = function(event)
+        if event.match:match '^%w%w+://' then
+            return
+        end
         local file = vim.loop.fs_realpath(event.match) or event.match
-
         vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
-        local backup = vim.fn.fnamemodify(file, ':p:~:h')
-        backup = backup:gsub('[/\\]', '%%')
-        vim.go.backupext = backup
     end,
 })
 
@@ -49,12 +50,3 @@ vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
     pattern = { '*' },
     command = 'setlocal statusline=%!v:lua.Statusline.inactive()',
 })
-
--- Colors
-vim.cmd 'filetype plugin indent on'
-vim.cmd 'syntax on'
-
--- 200 WPM config
-vim.cmd 'command! -nargs=* W w'
-vim.cmd 'command! -nargs=* Wq wq'
-vim.cmd 'command! -nargs=* Q q'

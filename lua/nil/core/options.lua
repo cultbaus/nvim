@@ -1,69 +1,101 @@
-local global = vim.g
-local opt = vim.opt
+vim.g.mapleader = '\\'
 
-global.mapleader = '\\'
+-- housekeeping
+vim.o.filetype = 'on'
+vim.o.syntax = 'on'
 
--- Completion
-opt.completeopt = 'menu,menuone,noselect'
-opt.shortmess = 'flmTWAIq'
+-- basic
+vim.opt.scrolloff = 3
+vim.opt.title = true
+vim.opt.titlestring = '%f'
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.cmdheight = 1
+vim.opt.termguicolors = true
+vim.opt.showmode = false
+vim.opt.mouse = ''
 
--- Search
-opt.hlsearch = true
+-- timeout stuff
+vim.opt.updatetime = 300
+vim.opt.timeout = true
+vim.opt.timeoutlen = 1000
+vim.opt.ttimeoutlen = 10
 
--- Indents
-opt.shiftwidth = 4
-opt.softtabstop = 4
-opt.tabstop = 4
-opt.expandtab = true
+-- status, tab, number, sign line
+vim.opt.ruler = false
+vim.opt.laststatus = 2
+vim.opt.number = true
+vim.opt.relativenumber = false
+vim.opt.signcolumn = 'number'
 
--- Status line
-opt.ruler = true
-opt.showmode = false
-opt.laststatus = 2
+-- window, buffer, tabs
+vim.opt.switchbuf = 'newtab'
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.hidden = true
+vim.opt.list = true
+vim.opt.fillchars = {
+    vert = ' ',
+    eob = ' ',
+    diff = ' ',
+    msgsep = ' ',
+}
+vim.opt.listchars = {
+    tab = '» ',
+    extends = '›',
+    precedes = '‹',
+    nbsp = '·',
+    trail = '·',
+}
 
--- Better display
-opt.signcolumn = 'number'
-opt.cmdheight = 1
-opt.pumheight = 10
-opt.splitbelow = true
-opt.hidden = true
+-- text formatting
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.smartindent = true
+vim.opt.showmatch = true
+vim.opt.smartcase = true
+vim.opt.whichwrap:append '<>[]hl'
 
--- File types
-opt.encoding = 'utf8'
-opt.ffs = 'unix,dos,mac'
+-- remove intro
+vim.opt.shortmess:append 'sflmTWAIq'
 
--- Hover update debouncer
-opt.updatetime = 300
+-- netrw
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
 
--- File changes
-opt.autowrite = true
-opt.autowriteall = true
-opt.autoread = true
-opt.backup = false
-opt.writebackup = false
-opt.swapfile = false
+-- disable builtin vim plugins and providers
+local built_ins = {
+    '2html_plugin',
+    'getscript',
+    'getscriptPlugin',
+    'gzip',
+    'logipat',
+    'matchit',
+    'tar',
+    'tarPlugin',
+    'rrhelper',
+    'spellfile_plugin',
+    'vimball',
+    'vimballPlugin',
+    'zip',
+    'zipPlugin',
+}
 
--- Memory
-opt.maxmempattern = 2000000
+local providers = {
+    'perl',
+    'node',
+    'python',
+    'python3',
+    'ruby',
+}
 
--- List characters
-opt.list = true
-opt.listchars = string.format 'tab:» ,extends:›,precedes:‹,nbsp:·,trail:·'
-opt.fillchars = vim.o.fillchars .. string.format 'vert: ,eob: '
+for _, provider in pairs(providers) do
+    vim.g['loaded_' .. provider .. '_provider'] = 0
+end
 
--- System clipboard
-opt.clipboard = vim.o.clipboard .. 'unnamedplus'
-
--- Misc
-opt.wrap = true
-opt.number = true
-
--- Disable providers
-global.loaded_perl_provider = 0
-global.loaded_node_provider = 0
-global.loaded_python_provider = 0
-global.loaded_python3_provider = 0
-global.loaded_ruby_provider = 0
-
--- Colors
-opt.termguicolors = true
+for _, plugin in pairs(built_ins) do
+    vim.g['loaded_' .. plugin] = 1
+end

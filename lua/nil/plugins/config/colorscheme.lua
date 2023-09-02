@@ -1,11 +1,13 @@
 return {
     {
-        'noahfrederick/vim-noctu',
         lazy = false,
-        priority = 1000,
+        'noahfrederick/vim-noctu',
         config = function()
             vim.o.termguicolors = false
             vim.cmd.colorscheme 'noctu'
+
+            -- MiniPick overrides
+            vim.api.nvim_set_hl(0, 'MiniPickMatchCurrent', { ctermbg = 'white', ctermfg = 'black' })
 
             -- Statusline overrides
             vim.api.nvim_set_hl(0, 'StatuslineAccent', { ctermbg = 'white', ctermfg = 'black' })
