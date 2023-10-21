@@ -1,6 +1,8 @@
-# Nvim
+# nvim
 
-Neovim configuration, assumes you are building from Nightly. At the time of writing, that is v0.10.0-dev-XXXX.
+Neovim configuration, assumes you are building from Nightly. At the time of writing, that is v0.10.0-dev-XXXX. Quite a few of the plugins I use are from [mini.nvim][1] and I highly recommend checking it out, and keeping an eye on upcoming releases.
+
+`Setup` and `Configuration` are logically separate just because I think that is the direction plugins are going to take with all the commotion lately around `.setup { }`
 
 ### Quick start
 
@@ -14,10 +16,9 @@ Neovim configuration, assumes you are building from Nightly. At the time of writ
 
 2. Clone the repo, and place in `~/.config`
 
-That's it. That's the quick start.
-
 ### Colors
 
-Color theme is Noctu which passes your terminal theme into Nvim. I'm using a modified version of [pap][1] to set my color theme.
+Color theme is Noctu which passes your terminal theme into Nvim. I'm using a modified version of [pap][2] to set my color theme.
 
-[1]: https://github.com/fehawen/pap
+[1]: https://github.com/echasnovski/mini.nvim
+[2]: https://github.com/fehawen/pap
