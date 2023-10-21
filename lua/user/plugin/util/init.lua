@@ -6,6 +6,9 @@ M.mini = require 'user.plugin.util.mini'
 
 M.fn = {
     map_name = function(value)
+        if type(value) ~= 'string' then
+            return
+        end
         return { name = value }
     end,
     echo = function(msg, is_important)

@@ -6,6 +6,7 @@ local depends_on = {
     ['hrsh7th/cmp-nvim-lsp'] = 'nvim_lsp',
     ['hrsh7th/cmp-buffer'] = 'buffer',
     ['hrsh7th/cmp-path'] = 'path',
+    ['onsails/lspkind.nvim'] = true,
 }
 
 return {
@@ -15,7 +16,9 @@ return {
         config = config.nvim_cmp,
         dependencies = vim.tbl_keys(depends_on),
         opts = {
-            sources = vim.tbl_map(util.fn.map_name, vim.tbl_values(depends_on)),
+            sources = vim.tbl_filter(function(x)
+                return x ~= nil
+            end, vim.tbl_map(util.fn.map_name, vim.tbl_values(depends_on))),
         },
     },
 }
