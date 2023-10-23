@@ -19,6 +19,83 @@ M.ai = function()
     }
 end
 
+M.base16 = function()
+    local base16 = require 'mini.base16'
+    local diagnostic = {
+        error = '#FF5900',
+        warn = '#FFD400',
+        info = '#00FF64',
+        hint = '#00FFE5',
+    }
+    local palette = {
+        base00 = '#F5F5F5',
+        base01 = '#D0D0D0',
+        base02 = '#A9A9A9',
+        base03 = '#8C8C8C',
+        base04 = '#6E6E6E',
+        base05 = '#595959',
+        base06 = '#404040',
+        base07 = '#1A1A1A',
+        base08 = '#696969',
+        base09 = '#757575',
+        base0A = '#828282',
+        base0B = '#8E8E8E',
+        base0C = '#9A9A9A',
+        base0D = '#A7A7A7',
+        base0E = '#B3B3B3',
+        base0F = '#C0C0C0',
+    }
+    base16.setup {
+        palette = palette,
+        use_cterm = false,
+        plugins = {
+            default = false,
+            ['williamboman/mason.nvim'] = true,
+        },
+    }
+
+    -- base ui
+    vim.api.nvim_set_hl(0, 'LineNr', { bg = 'NONE', fg = palette.base04 })
+    vim.api.nvim_set_hl(0, 'CursorLineNr', { bg = 'NONE', fg = palette.base07, bold = true })
+    vim.api.nvim_set_hl(0, 'CursorLine', { bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'MatchParen', { bg = palette.base01, fg = palette.base04 })
+    vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'NONE', fg = palette.base04 })
+    vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE', fg = palette.base04 })
+    vim.api.nvim_set_hl(0, 'TabLine', { bg = 'NONE', fg = palette.base04 })
+    vim.api.nvim_set_hl(0, 'TabLineSel', { bg = 'NONE', fg = palette.base04, bold = true })
+    vim.api.nvim_set_hl(0, 'TabLineFill', { bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'Comment', { fg = palette.base01 })
+
+    -- spell
+    vim.api.nvim_set_hl(0, 'SpellBad', { fg = diagnostic.error, underline = true })
+    vim.api.nvim_set_hl(0, 'SpellRare', { fg = diagnostic.warn, underline = true })
+
+    -- mini.pick
+    vim.api.nvim_set_hl(0, 'MiniPickMatchCurrent', { bg = palette.base01 })
+    vim.api.nvim_set_hl(0, 'MiniPickMatchRanges', { fg = palette.base06, bold = true })
+    vim.api.nvim_set_hl(0, 'MiniPickNormal', { bg = palette.base00, fg = palette.base04 })
+    vim.api.nvim_set_hl(0, 'MiniPickBorder', { bg = palette.base00, fg = palette.base04 })
+    vim.api.nvim_set_hl(0, 'MiniPickBorderBusy', { bg = palette.base00, fg = palette.base04 })
+    vim.api.nvim_set_hl(0, 'MiniPickBorderText', { bg = palette.base00, fg = palette.base04 })
+    vim.api.nvim_set_hl(0, 'MiniPickPrompt', { bg = palette.base00, fg = palette.base04 })
+
+    -- diagnostic
+    vim.api.nvim_set_hl(0, 'DiagnosticError', { fg = diagnostic.error, bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'DiagnosticWarn', { fg = diagnostic.warn, bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'DiagnosticInfo', { fg = diagnostic.info, bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'DiagnosticHint', { fg = diagnostic.hint, bg = 'NONE' })
+
+    vim.api.nvim_set_hl(0, 'DiagnosticFloatingError', { fg = diagnostic.error, bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'DiagnosticFloatingWarn', { fg = diagnostic.warn, bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'DiagnosticFloatingInfo', { fg = diagnostic.info, bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'DiagnosticFloatingHint', { fg = diagnostic.hint, bg = 'NONE' })
+
+    -- nvim-cmp
+    vim.api.nvim_set_hl(0, 'CmpItemMenu', { bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemAbbrMatch', { fg = palette.base06, bg = 'NONE', bold = true })
+    vim.api.nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', { fg = palette.base06, bg = 'NONE', bold = true })
+end
+
 M.comment = function()
     local comment = require 'mini.comment'
     comment.setup {

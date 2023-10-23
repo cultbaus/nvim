@@ -49,8 +49,8 @@ vim.api.nvim_create_autocmd('FileType', {
     callback = function()
         vim.opt_local.wrap = true
         vim.opt_local.spell = true
-        vim.keymap.set('n', 'fne', ']s')
-        vim.keymap.set('n', 'fpe', '[s')
-        vim.keymap.set('n', '<leader>qf', 'z=')
+        vim.keymap.set('n', 'fne', ']s', { buffer = true })
+        vim.keymap.set('n', 'fpe', '[s', { buffer = true })
+        vim.keymap.set('n', '<leader>qf', 'z=', { buffer = true })
     end,
 })

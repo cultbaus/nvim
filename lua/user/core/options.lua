@@ -25,6 +25,7 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 vim.opt.signcolumn = 'number'
 vim.opt.cursorline = true
+vim.opt.wrap = false
 
 vim.opt.switchbuf = 'newtab'
 vim.opt.splitbelow = true
@@ -55,6 +56,3 @@ vim.opt.smartcase = true
 vim.opt.whichwrap:append '<>[]hl'
 
 vim.opt.shortmess:append 'sflmTWAIq'
-
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 3

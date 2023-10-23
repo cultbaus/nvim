@@ -34,12 +34,7 @@ Neovim configuration, mostly assumes you are building from Nightly fairly often 
 
 Thanks to [folke][3] and [echasnovski][4] for their incredible work in the plugin space, the former of which provided a foundation for me to steal quite a few configuration from the remarkable [LazyVim][5] project, the latter providing nearly half the core plugins which my configuration is now based upon.
 
-### Colors
-
-Color theme is Noctu which passes your terminal theme into Nvim. I'm using a modified version of [pap][2] to set my color theme, which is based on gruvxbox-material.
-
 [1]: https://github.com/echasnovski/mini.nvim
-[2]: https://github.com/fehawen/pap
 [3]: https://github.com/folke
 [4]: https://github.com/echasnovski
 [5]: https://www.lazyvim.org/

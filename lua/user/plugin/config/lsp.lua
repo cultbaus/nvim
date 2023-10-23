@@ -18,6 +18,10 @@ M.lsp_config = function()
         pattern = { '<buffer>' },
         command = 'silent! lua vim.diagnostic.open_float({ focusable = false, focus = false })',
     })
+    vim.fn.sign_define('DiagnosticSignError', { text = ' E', texthl = 'DiagnosticSignError' })
+    vim.fn.sign_define('DiagnosticSignWarn', { text = ' W', texthl = 'DiagnosticSignWarn' })
+    vim.fn.sign_define('DiagnosticSignInfo', { text = ' I', texthl = 'DiagnosticSignInfo' })
+    vim.fn.sign_define('DiagnosticSignHint', { text = ' H', texthl = 'DiagnosticSignHint' })
 end
 
 M.lsp_keys = {

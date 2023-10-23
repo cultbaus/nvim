@@ -24,7 +24,7 @@ local colors = {
 }
 
 local diagnostics_info = {
-    errors = { severity = 'Error', symbol = '❌' },
+    errors = { severity = 'Error', symbol = '⚠️ ' },
     warnings = { severity = 'Warn', symbol = '⚠️ ' },
     info = { severity = 'Info', symbol = '💡' },
     hints = { severity = 'Hint', symbol = '💡' },

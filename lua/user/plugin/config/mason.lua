@@ -28,6 +28,7 @@ M.installer = function()
             'gofumpt',
             'goimports',
             'markdownlint',
+            'shfmt',
             'stylua',
             'revive',
         },

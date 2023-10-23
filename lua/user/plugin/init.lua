@@ -12,4 +12,24 @@ if not vim.loop.fs_stat(lazy_path) then
 end
 vim.opt.rtp:prepend(lazy_path)
 
-require('lazy').setup { spec = { import = 'user.plugin.setup' } }
+require('lazy').setup {
+    spec = {
+        import = 'user.plugin.setup',
+    },
+    performance = {
+        cache = {
+            enabled = true,
+        },
+        reset_packpath = true,
+        rtp = {
+            disabled_plugins = {
+                'gzip',
+                'netrwPlugin',
+                'tarPlugin',
+                'tohtml',
+                'tutor',
+                'zipPlugin',
+            },
+        },
+    },
+}

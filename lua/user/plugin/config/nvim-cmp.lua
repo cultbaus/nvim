@@ -30,6 +30,7 @@ M.nvim_cmp = function(_, opts)
         },
         mapping = {
             ['<Tab>'] = require('cmp').mapping.select_next_item(),
+            ['<S-Tab>'] = require('cmp').mapping.select_prev_item(),
             ['<CR>'] = cmp.mapping {
                 i = function(fallback)
                     if cmp.visible() then
