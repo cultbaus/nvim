@@ -27,7 +27,7 @@ M.base16 = function()
         info = '#00FF64',
         hint = '#00FFE5',
     }
-    local palette = {
+    local light = {
         base00 = '#F5F5F5',
         base01 = '#D0D0D0',
         base02 = '#A9A9A9',
@@ -45,6 +45,27 @@ M.base16 = function()
         base0E = '#B3B3B3',
         base0F = '#C0C0C0',
     }
+    local dark = {
+        base00 = '#181818',
+        base01 = '#282828',
+        base02 = '#383838',
+        base03 = '#585858',
+        base04 = '#787878',
+        base05 = '#989898',
+        base06 = '#B8B8B8',
+        base07 = '#E0E0E0',
+        base08 = '#C8C8C8',
+        base09 = '#D0D0D0',
+        base0A = '#D8D8D8',
+        base0B = '#E0E0E0',
+        base0C = '#E8E8E8',
+        base0D = '#F0F0F0',
+        base0E = '#F8F8F8',
+        base0F = '#FFFFFF',
+    }
+
+    local palette = C.dark_mode and dark or light
+
     base16.setup {
         palette = palette,
         use_cterm = false,
@@ -64,7 +85,7 @@ M.base16 = function()
     vim.api.nvim_set_hl(0, 'TabLine', { bg = 'NONE', fg = palette.base04 })
     vim.api.nvim_set_hl(0, 'TabLineSel', { bg = 'NONE', fg = palette.base04, bold = true })
     vim.api.nvim_set_hl(0, 'TabLineFill', { bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'Comment', { fg = palette.base01 })
+    vim.api.nvim_set_hl(0, 'Comment', { fg = palette.base02 })
 
     -- spell
     vim.api.nvim_set_hl(0, 'SpellBad', { fg = diagnostic.error, underline = true })

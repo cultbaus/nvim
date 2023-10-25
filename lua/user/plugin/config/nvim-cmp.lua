@@ -66,6 +66,9 @@ M.nvim_cmp = function(_, opts)
                 cmp.config.compare.order,
             },
         },
+        experimental = {
+            ghost_text = false,
+        },
     }
 end
 

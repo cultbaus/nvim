@@ -2,6 +2,12 @@ local M = {}
 
 M.nvim_lint = function()
     local lint = require 'lint'
+
+    local revive = require('lint').linters.revive
+    revive.args = {
+        '-config',
+        'revive.toml',
+    }
     lint.linters_by_ft = {
         go = { 'revive' },
     }
