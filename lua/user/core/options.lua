@@ -14,11 +14,6 @@ vim.opt.termguicolors = true
 vim.opt.showmode = false
 vim.opt.mouse = ''
 
-vim.opt.updatetime = 300
-vim.opt.timeout = true
-vim.opt.timeoutlen = 1000
-vim.opt.ttimeoutlen = 10
-
 vim.opt.ruler = false
 vim.opt.laststatus = 2
 vim.opt.number = true

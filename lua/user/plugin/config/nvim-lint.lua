@@ -9,7 +9,7 @@ M.nvim_lint = function()
         'revive.toml',
     }
     lint.linters_by_ft = {
-        go = { 'revive' },
+        -- go = { 'revive' },
     }
     vim.api.nvim_create_autocmd({ 'BufEnter', 'TextChanged', 'InsertLeave', 'BufWritePost' }, {
         callback = function()

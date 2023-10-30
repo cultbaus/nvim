@@ -1,5 +1,5 @@
 C = {
-    dark_mode = false,
+    dark_mode = true,
 }
 
 require 'user.core'

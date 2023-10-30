@@ -13,8 +13,9 @@ M.lsp = function()
     local handlers = util.mason.make_handlers(capabilities)
     mason_lspconfig.setup {
         ensure_installed = {
+            'clangd',
+            'bashls',
             'gopls',
-            'marksman',
             'lua_ls',
         },
         handlers = handlers,
@@ -24,13 +25,14 @@ end
 M.installer = function()
     local installer = require 'mason-tool-installer'
     installer.setup {
+        run_on_start = true,
         ensure_installed = {
+            'clang-format',
             'gofumpt',
             'goimports',
             'markdownlint',
             'shfmt',
             'stylua',
-            'revive',
         },
     }
 end

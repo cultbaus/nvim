@@ -10,7 +10,11 @@ M.make_handlers = function(capabilities)
     local handlers = {}
 
     handlers[1] = function(server_name)
-        setup_server(server_name, capabilities, {})
+        setup_server(server_name, capabilities, {
+            on_attach = function()
+                vim.o.list = false
+            end,
+        })
     end
 
     handlers.gopls = function()
