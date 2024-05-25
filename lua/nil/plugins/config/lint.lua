@@ -3,7 +3,7 @@ return {
     config = function()
         local lint = require 'lint'
         lint.linters_by_ft = {
-            go = { 'revive' },
+            -- go = { 'revive' },
             typescript = { 'eslint_d' },
         }
         vim.api.nvim_create_autocmd({ 'BufEnter', 'TextChanged', 'InsertLeave', 'BufWritePost' }, {

@@ -17,6 +17,7 @@ local tools = {
     'stylua',
     'revive',
     'goimports',
+    'gofumpt',
 }
 
 return {
